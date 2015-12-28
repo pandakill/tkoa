@@ -1,0 +1,35 @@
+/* 
+* @Author: anchen
+* @Date:   2015-07-04 17:27:53
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-07-05 20:14:25
+*/
+.task_title span, .tasks_title_div span{
+    margin-right: 5px;
+}
+.tasks_title_div a{
+    margin-left: 2em;
+}
+.task_content{
+    text-indent: 2em;
+}
+.page-content{
+    letter-spacing: 2px;
+}
+
+.nav-tabs, .nav-tabs.nav-justified{
+    padding: 0;
+}
+#tab2 .input-group{
+    bottom: 8px;
+    left: 8px;
+    position: absolute;
+    right: 8px
+}
+/*.tasks_div{
+    height: 350px;
+}*/
+/*.map_div{
+    width: 100%; 
+    height: 350px;
+}*/

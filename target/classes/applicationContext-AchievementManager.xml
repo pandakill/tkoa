@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+											http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+											http://www.springframework.org/schema/tx
+											http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+	<!--依赖注入Bean -->
+	<!-- Dao -->
+	<bean id="ExpatriateLaborImpl" parent="BaseDAO" class="com.tk.dao.impl.ExpatriateLaborImpl"></bean>
+	<bean id="WorkImpl" parent="BaseDAO" class="com.tk.dao.impl.WorkImpl"></bean>
+
+	<!--Service -->
+	<bean id="AchievementManager" class="com.tk.service.impl.AchievementManager">
+		<property name="ExpatriateLaborDAO" ref="ExpatriateLaborImpl"></property>
+		<property name="WorkDAO" ref="WorkImpl"></property>
+		<property name="EmployeeDAO" ref="EmployeeImpl"></property>
+	</bean>
+
+	<!--Action -->
+	<bean id="AchievementAction" class="com.tk.action.AchievementAction">
+		<property name="iUsersManager" ref="UsersManager"></property>
+		<property name="iEmployeeManager" ref="EmployeeManager"></property>
+		<property name="iDepartmentManager" ref="DepartmentManager"></property>
+		<property name="iAchievementManager" ref="AchievementManager"></property>
+	</bean>
+	
+</beans>

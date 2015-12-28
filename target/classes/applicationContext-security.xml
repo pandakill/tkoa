@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+											http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+											http://www.springframework.org/schema/security
+          						http://www.springframework.org/schema/security/spring-security-3.1.xsd ">
+	<http auto-config="true">
+		<intercept-url pattern="/index.jsp" access="ROLE_ANONYMOUS, ROLE_SUPER, ROLE_ADMIN, ROLE_EMPLOYEE" />
+		<intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS, ROLE_SUPER, ROLE_ADMIN, ROLE_EMPLOYEE" />
+		<intercept-url pattern="/register.jsp" access="ROLE_ANONYMOUS" />
+		<anonymous username="anonymous" granted-authority="ROLE_ANONYMOUS" />
+		
+		<!-- login-page 指定自定义的登录页面
+			authentication-success-handler-ref	指定成功登录的处理类
+			authentication-failure-url	指定验证失败时跳转的页面 -->
+		<form-login login-page="/login.jsp"
+			authentication-success-handler-ref="tkoaLoginSuccessHandler" 
+			authentication-failure-url="/login.jsp?error=true" />
+		<!-- 指定退出成功时跳转的页面 ，退出登录时删除session对应的cookie -->
+		<logout logout-success-url="/login.do" delete-cookies="JSESSIONID" />
+		
+		<!-- session管理，invalid-session-url指定使用已经超时的sessionId进行请求需要重定向的页面 -->
+    <session-management invalid-session-url="/login.jsp" 
+    	session-fixation-protection="migrateSession" >
+    	<!--  当同一用户同时存在的已经通过认证的session数量超过了max-sessions所指定的值时，Spring Security的默认策略是将先前的设为无效。 -->
+    	<concurrency-control max-sessions="1"  expired-url="/login.jsp"/>
+    </session-management>
+	</http>		
+		
+	<authentication-manager>
+		<!-- 配置验证服务 -->
+		<authentication-provider>
+			<!-- 密码 MD5 加密 -->
+			<password-encoder hash="md5" />
+			<jdbc-user-service data-source-ref="dataSource" cache-ref="userCache" />
+		</authentication-provider>
+	</authentication-manager>				
+
+	<!-- 常信息本地化 -->
+	<beans:bean id="messageSource"
+   class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+  	<beans:property name="basenames">
+	    <beans:array>
+	      <!-- 将自定义的放在Spring Security内置的之前 -->
+	      <beans:value>classpath:messages_zh_CN</beans:value>
+	      <beans:value>classpath:org/springframework/security/messages_zh_CN</beans:value>
+	    </beans:array>
+  	</beans:property>
+  </beans:bean>
+   
+  <!-- 没有应用到 Ehcache -->
+  <!-- 
+  <authentication-manager alias="authenticationManager">
+      <authentication-provider
+         user-service-ref="userCache" />
+  </authentication-manager>
+  -->
+	<!-- 缓存UserDetails -->
+	<beans:bean id="userCache" class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+		<!-- 用于真正缓存的Ehcache对象 -->
+		<beans:property name="cache" ref="levelOneCache" />
+	</beans:bean>
+  <beans:bean id="levelOneCache" class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+      <beans:property name="cacheManager">
+          <beans:ref local="cacheManager" />
+      </beans:property>
+      <beans:property name="cacheName">
+          <beans:value>configCache</beans:value>
+      </beans:property>
+  </beans:bean>
+  <beans:bean id="cacheManager"
+      class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+      <beans:property name="configLocation">
+          <beans:value>/WEB-INF/classes/ehcache.xml</beans:value>
+      </beans:property>
+  </beans:bean>
+  
+  <!-- 控制登陆页面跳转 -->
+	<beans:bean id="tkoaLoginSuccessHandler" class="com.tk.security.TkoaLoginSuccessHandler" />
+  
+</beans:beans>

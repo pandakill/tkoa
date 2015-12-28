@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd" >
+<struts>
+	<!-- 通过 constant 元素配置 Struts 2 的属性，该属性的默认值为 false -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />	<!-- 设置 Struts 2 应用是否使用开发模式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />	<!-- 指定 web 应用的默认编码集 -->
+	<constant name="struts.action.extension" value="do" />	<!-- 更改 action 的后缀 -->
+	
+	<!-- ClientAction -->
+	<package name="ClientAction" namespace="/" extends="struts-default">
+		<!-- 登录页 -->
+		<action name="login" method="redirectLogin" class="com.tk.action.ClientAction">
+			<result name="login">/login.jsp</result>
+		</action>
+		<!-- 管理界面首页 -->
+		<action name="adminIndex" method="redirectAdminIndex" class="com.tk.action.ClientAction">
+			<result name="index">/WEB-INF/jsp/admin/index.jsp</result>
+		</action>
+		<!-- 人员管理页 -->
+		<action name="userManage" method="redirectUserManage" class="com.tk.action.ClientAction">
+			<result name="userManage">/WEB-INF/jsp/admin/user_manage.jsp</result>
+		</action>
+		<!-- 个人信息页 -->
+		<action name="personal" method="personal" class="com.tk.action.ClientAction">
+			<result name="getPersonal">/WEB-INF/jsp/admin/personal.jsp</result>
+		</action>
+        <action name="expatriateLaborManage" method="expatriateLaborManage" class="com.tk.action.DepartmentAction">
+            <result name="expatriateLaborManage">/WEB-INF/jsp/admin/expatriate_labor_manage.jsp</result>
+        </action>
+		<!-- 员工管理 -->
+		<action name="addEmployee" method="addEmployee" class="com.tk.action.ClientAction"></action>
+		<action name="getBusiness" method="getBusiness" class="com.tk.action.ClientAction"></action>
+		<action name="updateEmployee" method="updateEmployee" class="com.tk.action.ClientAction"></action>
+		<action name="deleteEmployee" method="deleteEmployee" class="com.tk.action.ClientAction"></action>
+		<action name="register" method="register" class="com.tk.action.ClientAction"></action>
+		<action name="getNames" method="getNames" class="com.tk.action.ClientAction"></action>
+	</package>
+	
+	<!-- Json -->
+	<package name="jsonManager" namespace="/" extends="json-default">
+		<action name="clockingIn" method="clockingIn" class="com.tk.action.JsonAction"></action>
+		<action name="clockingOut" method="clockingOut" class="com.tk.action.JsonAction"></action>
+		<action name="askForLeave" method="askForLeave" class="com.tk.action.JsonAction"></action>
+	</package>
+	
+	<package name="DepartmentManager" namespace="/" extends="struts-default">
+        <action name="departmentManage" method="departmentManage" class="com.tk.action.DepartmentAction">
+            <result name="departmentManage">/WEB-INF/jsp/admin/department_manage.jsp</result>
+        </action>
+        <action name="businessManage" method="businessManage" class="com.tk.action.DepartmentAction">
+            <result name="businessManage">/WEB-INF/jsp/admin/business_manage.jsp</result>
+        </action>
+        <action name="postManage" method="postManage" class="com.tk.action.DepartmentAction">
+            <result name="postManage">/WEB-INF/jsp/admin/post_manage.jsp</result>
+        </action>
+        <action name="updateBusiness" method="updateBusiness" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="addBusiness" method="addBusiness" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="deleteBusiness" method="deleteBusiness" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="addDepartment" method="addDepartment" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="updateDepartment" method="updateDepartment" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="deleteDepartment" method="deleteDepartment" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="addPost" method="addPost" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="updatePost" method="updatePost" class="com.tk.action.DepartmentAction">
+        </action>
+        <action name="deletePost" method="deletePost" class="com.tk.action.DepartmentAction">
+        </action>
+    </package>
+    
+    <!-- AchievementAction -->
+	<package name="AchievementAction" namespace="/" extends="struts-default">
+		<!-- 外勤管理页 -->
+		<action name="expatriate" method="redirectExpatriate" class="com.tk.action.AchievementAction">
+			<result name="expatriate">/WEB-INF/jsp/admin/expatriate_manage.jsp</result>
+		</action>
+	</package>
+	
+	<!-- AchievementActionJson -->
+	<package name="AchievementjsonManager" namespace="/" extends="json-default">
+		<action name="addExpatriate" method="addExpatriate" class="com.tk.action.AchievementAction">
+			<result name="flag" type="json">
+				<param name="root">flag</param>
+			</result>
+		</action>
+	</package>
+	
+	<!-- App -->
+	<package name="AppAction" namespace="/" extends="struts-default">
+		<!-- app登录 -->
+		<action name="Applogin" method="Applogin" class="com.tk.action.AppAction"></action>
+		<!-- app登录 -->
+		<action name="AppgetNames" method="AppgetNames" class="com.tk.action.AppAction"></action>
+		<action name="AppgetInfors" method="AppgetInfors" class="com.tk.action.AppAction"></action>
+		<action name="AppgetExpatriates" method="AppgetExpatriates" class="com.tk.action.AppAction"></action>
+		<action name="Appclockin" method="Appclockin" class="com.tk.action.AppAction"></action>
+		<action name="AppgetSalary" method="AppgetSalary" class="com.tk.action.AppAction"></action>
+		<action name="autoGet" method="autoGet" class="com.tk.action.AppAction"></action>
+		<action name="AppgetNotices" method="AppgetNotices" class="com.tk.action.AppAction"></action>
+		<action name="AppgetClockin" method="AppgetClockin" class="com.tk.action.AppAction"></action>
+	</package>
+	
+	
+	
+</struts>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+											http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+											http://www.springframework.org/schema/tx
+											http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+	<!--依赖注入Bean -->
+	<!-- Dao -->
+	<bean id="AttendTypeDAOImpl" parent="BaseDAO" class="com.tk.dao.impl.AttendTypeDAOImpl"></bean>
+	<bean id="AuthoritiesImpl" parent="BaseDAO" class="com.tk.dao.impl.AuthoritiesImpl"></bean>
+	<bean id="ClockingInImpl" parent="BaseDAO" class="com.tk.dao.impl.ClockingInImpl"></bean>
+	<bean id="ClockingOutDAOImpl" parent="BaseDAO" class="com.tk.dao.impl.ClockingOutDAOImpl"></bean>
+	<bean id="EducationBackgroundImpl" parent="BaseDAO" class="com.tk.dao.impl.EducationBackgroundImpl"></bean>
+	<bean id="EmployeeImpl" parent="BaseDAO" class="com.tk.dao.impl.EmployeeImpl"></bean>
+	<bean id="LeaveDAOImpl" parent="BaseDAO" class="com.tk.dao.impl.LeaveDAOImpl"></bean>
+	<bean id="LeaveStateDAOImpl" parent="BaseDAO" class="com.tk.dao.impl.LeaveStateDAOImpl"></bean>
+	<bean id="UsersImpl" parent="BaseDAO" class="com.tk.dao.impl.UsersImpl"></bean>
+	<bean id="SalaryImpl" parent="BaseDAO" class="com.tk.dao.impl.SalaryImpl"></bean>
+	
+
+	<!--Service -->
+	<bean id="AuthoritiesManager" class="com.tk.service.impl.AuthoritiesManager">
+		<property name="AuthoritiesDAO" ref="AuthoritiesImpl"></property>
+	</bean>
+	<bean id="ClockingInManager" class="com.tk.service.impl.ClockingInManager">
+		<property name="ClockingInDAO" ref="ClockingInImpl"></property>
+		<property name="ClockingOutDAO" ref="ClockingOutDAOImpl"></property>
+		<property name="EmployeeDAO" ref="EmployeeImpl"></property>
+		<property name="AttendTypeDAO" ref="AttendTypeDAOImpl"></property>
+	</bean>
+	<bean id="EmployeeManager" class="com.tk.service.impl.EmployeeManager">
+		<property name="EmployeeDAO" ref="EmployeeImpl"></property>
+	</bean>
+	<bean id="UsersManager" class="com.tk.service.impl.UsersManager">
+		<property name="UsersDAO" ref="UsersImpl"></property>
+		<property name="SecuritySessionInfo" ref="securitySessionInfo"></property>
+	</bean>
+	<bean id="DepartmentManager" class="com.tk.service.impl.DepartmentManager">
+		<property name="departmentDAO" ref="DepartmentImpl"></property>
+		<property name="businessDAO" ref="BusinessImpl"></property>
+		<property name="postDAO" ref="PostImpl"></property>
+	</bean>
+	<bean id="EducationBackgroundManager" class="com.tk.service.impl.EducationBackgroundManager">
+		<property name="EducationBackgroundDAO" ref="EducationBackgroundImpl"></property>
+	</bean>
+	<bean id="SalaryManager" class="com.tk.service.impl.SalaryManager">
+		<property name="SalaryDAO" ref="SalaryImpl"></property>
+		<property name="employeeDAO" ref="EmployeeImpl"></property>
+		<property name="clockingInDAO" ref="ClockingInImpl"></property>
+	</bean>
+
+	<!--Action -->
+	<bean id="ClientAction" class="com.tk.action.ClientAction">
+		<property name="iClockingInManager" ref="ClockingInManager"></property>
+		<property name="iUsersManager" ref="UsersManager"></property>
+		<property name="iEmployeeManager" ref="EmployeeManager"></property>
+		<property name="iDepartmentManager" ref="DepartmentManager"></property>
+		<property name="iEducationBackgroundManager" ref="EducationBackgroundManager"></property>
+		<property name="iAuthoritiesManager" ref="AuthoritiesManager"></property>
+		<property name="iSalaryManager" ref="SalaryManager"></property>
+	</bean>
+	<bean id="jsonAction" class="com.tk.action.JsonAction">
+		<property name="iClockingInManager" ref="ClockingInManager"></property>
+		<property name="iUsersManager" ref="UsersManager"></property>
+		<property name="iEmployeeManager" ref="EmployeeManager"></property>
+		<property name="iDepartmentManager" ref="DepartmentManager"></property>
+		<property name="iEducationBackgroundManager" ref="EducationBackgroundManager"></property>
+		<property name="iAuthoritiesManager" ref="AuthoritiesManager"></property>
+	</bean>
+	
+	<!-- security -->
+	<bean id="securitySessionInfo" class="com.tk.security.SecuritySessionInfo"></bean>
+	
+</beans>
