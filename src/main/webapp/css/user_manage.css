@@ -1,0 +1,25 @@
+/* 
+* @Author: anchen
+* @Date:   2015-07-04 17:27:53
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-07-08 21:25:44
+*/
+.btn.btn-info.ml20{
+    margin-left: 20px;
+}
+
+.error.checkbox-inline {
+    cursor: auto;
+}
+
+#modal_pb_add_form .fa.fa-minus-circle , #modal_pb_add_form .fa.fa-plus-circle{
+    cursor: pointer;
+}
+
+.charge_business > .label{
+    margin-right: 10px;
+}
+
+.tangram-suggestion-main{
+    z-index: 1050;
+}

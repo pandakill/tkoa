@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Notice" table="notice" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="title" type="string">
+            <column name="TITLE" length="50" not-null="true">
+                <comment>标题</comment>
+            </column>
+        </property>
+        <property name="details" type="string">
+            <column name="DETAILS" length="240" not-null="true">
+                <comment>详情</comment>
+            </column>
+        </property>
+        <property name="promulgator" type="string">
+            <column name="PROMULGATOR" length="10" not-null="true">
+                <comment>发布者</comment>
+            </column>
+        </property>
+        <property name="pubdate" type="string">
+            <column name="PUBDATE" length="50" not-null="true">
+                <comment>发布时间</comment>
+            </column>
+        </property>
+        <!-- 与department建立多对一的双向关联关系 -->
+      	<many-to-one name="department" class="com.tk.dao.hbm.Department" fetch="join" lazy="false">
+    			<column name="DEPARTMENT_ID"/>
+				</many-to-one>
+    </class>
+</hibernate-mapping>

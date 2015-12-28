@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Salary" table="salary" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="year" type="int">
+            <column name="YEAR" not-null="true">
+                <comment>年</comment>
+            </column>
+        </property>
+        <property name="month" type="int">
+            <column name="MONTH" not-null="true">
+                <comment>月</comment>
+            </column>
+        </property>
+        <property name="workload" type="int">
+            <column name="WORKLOAD" not-null="true">
+                <comment>工作量</comment>
+            </column>
+        </property>
+        <property name="totalSalary" type="int">
+            <column name="TOTAL_SALARY" not-null="true">
+                <comment>单月总工资</comment>
+            </column>
+        </property>
+        <!-- 与employee建立多对一的双向关联关系 -->
+        <many-to-one name="employee" class="com.tk.dao.hbm.Employee" fetch="join" lazy="false">
+            <column name="EMPLOYEE_ID" length="5" not-null="true">
+                <comment>业务员ID</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

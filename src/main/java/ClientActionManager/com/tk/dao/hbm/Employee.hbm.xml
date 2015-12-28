@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Employee" table="employee" catalog="tkoa">
+        <id name="id" type="string">
+            <column name="ID" length="5" />
+            <generator class="assigned" />
+        </id>
+        <property name="extension" type="string">
+            <column name="EXTENSION" length="3" not-null="true">
+                <comment>业务员分机</comment>
+            </column>
+        </property>
+        <property name="duty" type="string">
+            <column name="DUTY" length="20" not-null="true">
+                <comment>职务</comment>
+            </column>
+        </property>
+        <property name="hiredate" type="string">
+            <column name="HIREDATE" length="15" not-null="true">
+                <comment>入职日期</comment>
+            </column>
+        </property>
+        <property name="salary" type="int">
+            <column name="SALARY" not-null="true">
+                <comment>薪金待遇</comment>
+            </column>
+        </property>
+        <property name="name" type="string">
+            <column name="NAME" length="16" not-null="true">
+                <comment>姓名</comment>
+            </column>
+        </property>
+        <property name="sex" type="string">
+            <column name="SEX" length="2" not-null="true">
+                <comment>性别：男/女</comment>
+            </column>
+        </property>
+        <property name="nativePlace" type="string">
+            <column name="NATIVE_PLACE" length="40">
+                <comment>籍贯</comment>
+            </column>
+        </property>
+        <property name="birthday" type="string">
+            <column name="BIRTHDAY" length="8" not-null="true">
+                <comment>出生年月日:保存格式如：19920801</comment>
+            </column>
+        </property>
+        <property name="major" type="string">
+            <column name="MAJOR" length="20">
+                <comment>专业</comment>
+            </column>
+        </property>
+        <property name="seniority" type="int">
+            <column name="SENIORITY">
+                <comment>年资</comment>
+            </column>
+        </property>
+        <!-- 与users建立基于外键双向的一对一关联关系 -->
+        <many-to-one name="users" class="com.tk.dao.hbm.Users" fetch="select" unique="true" lazy="false">
+        		<column name="TEL" length="11" not-null="true">
+                <comment>业务员手机，作为登录名</comment>
+            </column>
+        </many-to-one>
+        <!-- 与department建立多对一双向关联关系 -->
+        <many-to-one name="department" class="com.tk.dao.hbm.Department" fetch="select" lazy="false">
+            <column name="DEPARTMENT_ID" length="3">
+                <comment>部门</comment>
+            </column>
+        </many-to-one>
+        <!-- 与post建立基于外键双向的多对一关联关系 -->
+        <many-to-one name="post" class="com.tk.dao.hbm.Post" fetch="join" lazy="false">
+            <column name="POST_ID" />
+        </many-to-one>
+        <!-- 与educationBackground建立基于外键双向的多对一关联关系 -->
+        <many-to-one name="educationBackground" class="com.tk.dao.hbm.EducationBackground" fetch="join" lazy="false">
+            <column name="EDUCATION_BACKGROUND_ID" />
+        </many-to-one>
+        <!-- 与clockingIn建立多对一双向关联关系 -->
+        <set name="clockingIns" table="clocking_in" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true" />
+            </key>
+            <one-to-many class="com.tk.dao.hbm.ClockingIn" />
+        </set>
+        <!-- 与salary建立多对一双向关联关系 -->
+        <set name="salaries" table="salary" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true">
+                    <comment>业务员ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Salary" />
+        </set>
+        <!-- 与expatriateLabor建立多对一双向关联关系 -->
+        <set name="expatriateLabors" table="expatriate_labor" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true">
+                    <comment>业务员ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.ExpatriateLabor" />
+        </set>
+        <!-- 与work建立多对一双向关联关系 -->
+        <set name="works" table="work" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true">
+                    <comment>业务员ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Work" />
+        </set>
+        
+        <!-- 与leave建立多对一双向关联关系 -->
+        <set name="leaves" table="leave" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" not-null="true">
+                    <comment>员工ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Leave" />
+        </set>
+        
+        <!-- 与checkItems建立多对一双向关联关系 -->
+        <set name="checkItems" table="check_item" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true">
+                    <comment>业务员ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.ExpatriateLabor" />
+        </set>
+        
+        <!-- 与checkItems建立多对一双向关联关系 -->
+        <set name="cooperPlans" table="cooperatice_person" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="EMPLOYEE_ID" length="5" not-null="true">
+                    <comment>计划协作人</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.ExpatriateLabor" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

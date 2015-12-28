@@ -1,0 +1,35 @@
+# osx noise
+.DS_Store
+profile
+
+# xcode noise
+build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# svn & cvs
+.svn
+CVS
+.idea/*
+generated/*
+out/*
+androidannotations.log
+app/build/*
+.gradle/*
+.gradle/2.2.1/taskArtifacts/cache.properties
+.gradle/2.2.1/taskArtifacts/outputFileStates.bin
+app/app.iml
+local.properties
+*.iml
+
+# eclipse program
+.settings
+.classpath
+.project
+target

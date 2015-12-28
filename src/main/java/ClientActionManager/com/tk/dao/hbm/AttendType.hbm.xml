@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.AttendType" table="attend_type" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="20" not-null="false">
+                <comment>打卡状态</comment>
+            </column>
+        </property>
+        <!-- 与clockingIn建立一对多双向关联关系 -->
+        <set name="clockingIns" table="clocking_in" inverse="true" lazy="false">
+		    <key>
+		        <column name="ATTEND_TYPE_ID"/>
+		    </key>
+		    <one-to-many class="com.tk.dao.hbm.ClockingIn"/>
+		</set>
+		<!-- 与clockingOut建立一对多双向关联关系 -->
+		<set name="clockingOuts" table="clocking_out" inverse="true" lazy="false">
+		  <key>
+		      <column name="ATTEND_TYPE_ID"/>
+		  </key>
+		  <one-to-many class="com.tk.dao.hbm.ClockingOut"/>
+		</set>
+    </class>
+</hibernate-mapping>

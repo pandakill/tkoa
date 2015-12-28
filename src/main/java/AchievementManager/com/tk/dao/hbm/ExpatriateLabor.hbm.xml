@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.ExpatriateLabor" table="expatriate_labor" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="customerName" type="string">
+            <column name="CUSTOMER_NAME" length="30" not-null="true">
+                <comment>客户名称</comment>
+            </column>
+        </property>
+        <property name="projectDetails" type="string">
+            <column name="PROJECT_DETAILS" length="120" not-null="true">
+                <comment>项目详情</comment>
+            </column>
+        </property>
+        <property name="customerAddress" type="string">
+            <column name="CUSTOMER_ADDRESS" length="50" not-null="true">
+                <comment>公司地址</comment>
+            </column>
+        </property>
+        <property name="longitudeE" type="string">
+            <column name="LONGITUDEE" length="20" not-null="true">
+                <comment>经度</comment>
+            </column>
+        </property>
+        <property name="latitudeE" type="string">
+            <column name="LATITUDEE" length="20" not-null="true">
+                <comment>纬度</comment>
+            </column>
+        </property>
+        <property name="attackTime" type="string">
+            <column name="ATTACK_TIME" not-null="true">
+                <comment>工作开始的时间，保存格式如：1992-08-01</comment>
+            </column>
+        </property>
+        <property name="deadline" type="int">
+            <column name="DEADLINE" not-null="true">
+                <comment>完成期限，单位：天</comment>
+            </column>
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" not-null="true">
+                <comment>外勤任务状态
+                1：完成
+                0：未完成</comment>
+            </column>
+        </property>
+        <!-- 与employee建立多对一双向关联关系 -->
+        <many-to-one name="employee" class="com.tk.dao.hbm.Employee" fetch="join" lazy="false">
+            <column name="EMPLOYEE_ID" length="5" not-null="true">
+                <comment>业务员ID</comment>
+            </column>
+        </many-to-one>
+        <!-- 与department建立多对一双向关联关系 -->
+        <many-to-one name="department" class="com.tk.dao.hbm.Department" fetch="join" lazy="false">
+            <column name="DEPARTMENT_ID" length="3" not-null="true">
+                <comment>部门ID</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

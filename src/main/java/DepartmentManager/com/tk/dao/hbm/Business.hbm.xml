@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Business" table="business" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="10" not-null="true">
+                <comment>
+                	业务分类：
+									1：市场销售
+									2：工程安装
+									3：维修维护
+                </comment>
+            </column>
+        </property>
+        <!-- 与post建立双向一对多关联关系 -->
+        <set name="posts" table="post" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="BUSINESS_ID" not-null="true">
+                    <comment>岗位所属业务类型</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Post" />
+        </set>
+        <!-- 与department建立一对多双向关联关系 -->
+        <set name="departments" table="department" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="BUSINESS_ID" not-null="true">
+                    <comment>业务分类ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Department" />
+        </set>
+    </class>
+</hibernate-mapping>

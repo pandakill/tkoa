@@ -1,0 +1,32 @@
+/* 
+* @Author: anchen
+* @Date:   2015-07-04 17:27:53
+* @Last Modified by:   anchen
+* @Last Modified time: 2015-07-04 20:31:29
+*/
+.login-title{
+    letter-spacing: 10px;
+}
+.login-container .login-box .login-body .login-title{
+    color: black;
+}
+a:hover, a:focus, .btn-link:hover, .btn-link:focus{
+    text-decoration: none;
+}
+.login-container.lightmode .login-box .login-subtitle a:hover{
+    color: #1caf9a;
+}
+.login-container .login-box .login-body .btn-link:hover{
+    color: #1caf9a;
+}
+.login-body{
+    letter-spacing: 5px;
+}
+label.error, label.valid{
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+#get_code{
+    letter-spacing: 0;
+}

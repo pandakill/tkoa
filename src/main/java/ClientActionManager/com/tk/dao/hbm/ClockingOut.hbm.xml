@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.ClockingOut" table="clocking_out" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="foreign">
+                <param name="property">clockingIn</param>
+            </generator>
+        </id>
+        <property name="time" type="string">
+            <column name="TIME" length="8">
+                <comment>打卡下班时间</comment>
+            </column>
+        </property>
+        <property name="remark" type="string">
+            <column name="REMARK" length="50">
+                <comment>备注</comment>
+            </column>
+        </property>
+        <!-- 与users建立基于主键的一对一双向关联关系 -->
+        <one-to-one name="clockingIn" class="com.tk.dao.hbm.ClockingIn" constrained="true"></one-to-one>
+        <!-- 与attendType建立多对一双向关联关系 -->
+        <many-to-one name="attendType" class="com.tk.dao.hbm.AttendType" fetch="join" lazy="false">
+			    <column name="ATTEND_TYPE_ID"/>
+				</many-to-one>
+    </class>
+</hibernate-mapping>

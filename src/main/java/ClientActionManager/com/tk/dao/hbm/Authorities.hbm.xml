@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Authorities" table="authorities" catalog="tkoa">
+        <id name="username" type="string">
+            <column name="USERNAME" length="11" />
+            <generator class="foreign">
+                <param name="property">users</param>
+            </generator>
+        </id>
+        <property name="authority" type="string">
+            <column name="AUTHORITY" length="12" not-null="true">
+                <comment>
+                	权限分为3个：
+									超级管理员：ROLE_SUPER
+									管理员：ROLE_ADMIN
+									普通员工：ROLE_EMPLOYEE
+								</comment>
+            </column>
+        </property>
+        <!-- 与users建立基于主键的一对一双向关联关系 -->
+        <one-to-one name="users" class="com.tk.dao.hbm.Users" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>

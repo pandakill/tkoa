@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Project" table="project" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" length="5"/>
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="40" not-null="true">
+                <comment>计划名字</comment>
+            </column>
+        </property>
+        <property name="createDate" type="string">
+            <column name="CREATE_DATE" length="10" not-null="true">
+                <comment>项目创建时间</comment>
+            </column>
+        </property>
+        <property name="completeDate" type="string">
+            <column name="COMPLETE_DATE" length="10" not-null="false">
+                <comment>项目完成时间</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="100" not-null="false">
+                <comment>项目描述</comment>
+            </column>
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" length="1" not-null="true">
+                <comment>完成状态：0--未完成；1--已完成</comment>
+            </column>
+        </property>
+        
+        <!-- 与employee建立多对一双向关联关系 -->
+        <many-to-one name="leader" class="com.tk.dao.hbm.Employee" fetch="select" lazy="false">
+            <column name="LEADER" length="5">
+                <comment>项目负责人</comment>
+            </column>
+        </many-to-one>
+        
+        <!-- 与employee建立多对一双向关联关系 -->
+        <many-to-one name="auditor" class="com.tk.dao.hbm.Employee" fetch="select" lazy="false">
+            <column name="AUDITOR" length="5">
+                <comment>项目审核人</comment>
+            </column>
+        </many-to-one>
+        
+        <!-- 与participants建立多对一双向关联关系 -->
+        <set name="participants" table="participants" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="PROJECT_ID" length="5" not-null="true">
+                    <comment>项目ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Participants" />
+        </set>
+        
+        <!-- 与plan建立多对一双向关联关系 -->
+        <set name="plans" table="plan" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="PROJECT_ID" length="5" not-null="true">
+                    <comment>项目ID</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.Plan" />
+        </set>
+    </class>
+</hibernate-mapping>

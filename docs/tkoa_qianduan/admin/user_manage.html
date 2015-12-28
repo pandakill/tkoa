@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- META SECTION -->
+        <title>Joli Admin - Responsive Bootstrap Admin Template</title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <!-- END META SECTION -->
+        
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <!-- EOF CSS INCLUDE -->                                      
+        <link rel="stylesheet" type="text/css" href="css/select2/select2.css"/>
+        <link rel="stylesheet" type="text/css" href="css/user_manage.css"/>
+        <link rel="stylesheet" type="text/css" href="css/datepicker.css"/>
+    </head>
+    <body>
+        <!-- START PAGE CONTAINER -->
+        <div class="page-container">
+            
+            <!-- START PAGE SIDEBAR -->
+            <div class="page-sidebar">
+                <!-- START X-NAVIGATION -->
+                <ul class="x-navigation">
+                    <li class="xn-logo">
+                        <a href="index.html">Joli Admin</a>
+                        <a href="#" class="x-navigation-control"></a>
+                    </li>
+                    <li class="xn-profile">
+                        <a href="#" class="profile-mini">
+                            <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                        </a>
+                        <div class="profile">
+                            <div class="profile-image">
+                                <img src="assets/images/users/avatar.jpg" alt="John Doe"/>
+                            </div>
+                            <div class="profile-data">
+                                <div class="profile-data-name">John Doe</div>
+                                <div class="profile-data-title">Web Developer/Designer</div>
+                            </div>
+                            <div class="profile-controls">
+                                <a href="pages-profile.html" class="profile-control-left"><span class="fa fa-info"></span></a>
+                                <a href="pages-messages.html" class="profile-control-right"><span class="fa fa-envelope"></span></a>
+                            </div>
+                        </div>                                                                        
+                    </li>
+                    <li class="xn-title">Navigation</li>                    
+                    <li>
+                        <a href="index.html"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Pages</span></a>
+                        <ul>
+                            <li><a href="pages-gallery.html"><span class="fa fa-image"></span> Gallery</a></li>
+                            <li><a href="pages-profile.html"><span class="fa fa-user"></span> Profile</a></li>
+                            <li><a href="pages-address-book.html"><span class="fa fa-users"></span> Address Book</a></li>
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-clock-o"></span> Timeline</a>
+                                <ul>
+                                    <li><a href="pages-timeline.html"><span class="fa fa-align-center"></span> Default</a></li>
+                                    <li><a href="pages-timeline-simple.html"><span class="fa fa-align-justify"></span> Full Width</a></li>
+                                </ul>
+                            </li>
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-envelope"></span> Mailbox</a>
+                                <ul>
+                                    <li><a href="pages-mailbox-inbox.html"><span class="fa fa-inbox"></span> Inbox</a></li>
+                                    <li><a href="pages-mailbox-message.html"><span class="fa fa-file-text"></span> Message</a></li>
+                                    <li><a href="pages-mailbox-compose.html"><span class="fa fa-pencil"></span> Compose</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="pages-messages.html"><span class="fa fa-comments"></span> Messages</a></li>
+                            <li><a href="pages-calendar.html"><span class="fa fa-calendar"></span> Calendar</a></li>
+                            <li><a href="pages-tasks.html"><span class="fa fa-edit"></span> Tasks</a></li>
+                            <li><a href="pages-content-table.html"><span class="fa fa-columns"></span> Content Table</a></li>
+                            <li><a href="pages-faq.html"><span class="fa fa-question-circle"></span> FAQ</a></li>
+                            <li><a href="pages-search.html"><span class="fa fa-search"></span> Search</a></li>
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-file"></span> Blog</a>
+                                
+                                <ul>                                    
+                                    <li><a href="pages-blog-list.html"><span class="fa fa-copy"></span> List of Posts</a></li>
+                                    <li><a href="pages-blog-post.html"><span class="fa fa-file-o"></span>Single Post</a></li>
+                                </ul>
+                            </li>
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-sign-in"></span> Login</a>
+                                <ul>                                    
+                                    <li><a href="pages-login.html">App Login</a></li>
+                                    <li><a href="pages-login-website.html">Website Login</a></li>
+                                    <li><a href="pages-login-website-light.html"> Website Login Light</a></li>
+                                </ul>
+                            </li>                            
+                            <li class="xn-openable">
+                                <a href="#"><span class="fa fa-warning"></span> Error Pages</a>
+                                <ul>                                    
+                                    <li><a href="pages-error-404.html">Error 404 Sample 1</a></li>
+                                    <li><a href="pages-error-404-2.html">Error 404 Sample 2</a></li>
+                                    <li><a href="pages-error-500.html"> Error 500</a></li>
+                                </ul>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Layouts</span></a>
+                        <ul>
+                            <li><a href="layout-boxed.html">Boxed</a></li>
+                            <li><a href="layout-nav-toggled.html">Navigation Toggled</a></li>
+                            <li><a href="layout-nav-top.html">Navigation Top</a></li>
+                            <li><a href="layout-nav-right.html">Navigation Right</a></li>
+                            <li><a href="layout-nav-top-fixed.html">Top Navigation Fixed</a></li>                            
+                            <li><a href="layout-nav-custom.html">Custom Navigation</a></li>
+                            <li><a href="layout-frame-left.html">Frame Left Column</a></li>
+                            <li><a href="layout-frame-right.html">Frame Right Column</a></li>
+                            <li><a href="layout-search-left.html">Search Left Side</a></li>
+                            <li><a href="blank.html">Blank Page</a></li>
+                        </ul>
+                    </li>         
+                    <li class="xn-title">Components</li>                    
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-cogs"></span> <span class="xn-text">UI Kits</span></a>
+                        <ul>
+                            <li><a href="ui-widgets.html"><span class="fa fa-heart"></span> Widgets</a></li>                            
+                            <li><a href="ui-elements.html"><span class="fa fa-cogs"></span> Elements</a></li>
+                            <li><a href="ui-buttons.html"><span class="fa fa-square-o"></span> Buttons</a></li>                            
+                            <li><a href="ui-panels.html"><span class="fa fa-pencil-square-o"></span> Panels</a></li>
+                            <li><a href="ui-icons.html"><span class="fa fa-magic"></span> Icons</a><div class="informer informer-warning">+679</div></li>
+                            <li><a href="ui-typography.html"><span class="fa fa-pencil"></span> Typography</a></li>
+                            <li><a href="ui-portlet.html"><span class="fa fa-th"></span> Portlet</a></li>
+                            <li><a href="ui-sliders.html"><span class="fa fa-arrows-h"></span> Sliders</a></li>
+                            <li><a href="ui-alerts-popups.html"><span class="fa fa-warning"></span> Alerts & Popups</a></li>                            
+                            <li><a href="ui-lists.html"><span class="fa fa-list-ul"></span> Lists</a></li>
+                            <li><a href="ui-tour.html"><span class="fa fa-random"></span> Tour</a></li>
+                        </ul>
+                    </li>                    
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-pencil"></span> <span class="xn-text">Forms</span></a>
+                        <ul>
+                            <li>
+                                <a href="form-layouts-two-column.html"><span class="fa fa-tasks"></span> Form Layouts</a>
+                                <div class="informer informer-danger">New</div>
+                                <ul>
+                                    <li><a href="form-layouts-one-column.html"><span class="fa fa-align-justify"></span> One Column</a></li>
+                                    <li><a href="form-layouts-two-column.html"><span class="fa fa-th-large"></span> Two Column</a></li>
+                                    <li><a href="form-layouts-tabbed.html"><span class="fa fa-table"></span> Tabbed</a></li>
+                                    <li><a href="form-layouts-separated.html"><span class="fa fa-th-list"></span> Separated Rows</a></li>
+                                </ul> 
+                            </li>
+                            <li><a href="form-elements.html"><span class="fa fa-file-text-o"></span> Elements</a></li>
+                            <li><a href="form-validation.html"><span class="fa fa-list-alt"></span> Validation</a></li>
+                            <li><a href="form-wizards.html"><span class="fa fa-arrow-right"></span> Wizards</a></li>
+                            <li><a href="form-editors.html"><span class="fa fa-text-width"></span> WYSIWYG Editors</a></li>
+                            <li><a href="form-file-handling.html"><span class="fa fa-floppy-o"></span> File Handling</a></li>
+                        </ul>
+                    </li>
+                    <li class="xn-openable active">
+                        <a href="tables.html"><span class="fa fa-table"></span> <span class="xn-text">Tables</span></a>
+                        <ul>                            
+                            <li><a href="table-basic.html"><span class="fa fa-align-justify"></span> Basic</a></li>
+                            <li><a href="table-datatables.html"><span class="fa fa-sort-alpha-desc"></span> Data Tables</a></li>
+                            <li class="active"><a href="table-export.html"><span class="fa fa-download"></span> Export Tables</a></li>                     
+                        </ul>
+                    </li>
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-bar-chart-o"></span> <span class="xn-text">Charts</span></a>
+                        <ul>
+                            <li><a href="charts-morris.html"><span class="xn-text">Morris</span></a></li>
+                            <li><a href="charts-nvd3.html"><span class="xn-text">NVD3</span></a></li>
+                            <li><a href="charts-rickshaw.html"><span class="xn-text">Rickshaw</span></a></li>
+                            <li><a href="charts-other.html"><span class="xn-text">Other</span></a></li>
+                        </ul>
+                    </li>     
+                    <li>
+                        <a href="maps.html"><span class="fa fa-map-marker"></span> <span class="xn-text">Maps</span></a>
+                    </li>                    
+                    <li class="xn-openable">
+                        <a href="#"><span class="fa fa-sitemap"></span> <span class="xn-text">Navigation Levels</span></a>
+                        <ul>                            
+                            <li class="xn-openable">
+                                <a href="#">Second Level</a>
+                                <ul>
+                                    <li class="xn-openable">
+                                        <a href="#">Third Level</a>
+                                        <ul>
+                                            <li class="xn-openable">
+                                                <a href="#">Fourth Level</a>
+                                                <ul>
+                                                    <li><a href="#">Fifth Level</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>                            
+                        </ul>
+                    </li>                    
+                </ul>
+                <!-- END X-NAVIGATION -->
+            </div>
+            <!-- END PAGE SIDEBAR -->
+            
+            <!-- PAGE CONTENT -->
+            <div class="page-content">
+                
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- TOGGLE NAVIGATION -->
+                    <li class="xn-icon-button">
+                        <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
+                    </li>
+                    <!-- END TOGGLE NAVIGATION -->
+                    <!-- SEARCH -->
+                    <li class="xn-search">
+                        <form role="form">
+                            <input type="text" name="search" placeholder="Search..."/>
+                        </form>
+                    </li>   
+                    <!-- END SEARCH -->
+                    <!-- SIGN OUT -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span></a>                        
+                    </li> 
+                    <!-- END SIGN OUT -->
+                    <!-- MESSAGES -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="#"><span class="fa fa-comments"></span></a>
+                        <div class="informer informer-danger">4</div>
+                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span class="fa fa-comments"></span> Messages</h3>                                
+                                <div class="pull-right">
+                                    <span class="label label-danger">4 new</span>
+                                </div>
+                            </div>
+                            <div class="panel-body list-group list-group-contacts scroll" style="height: 200px;">
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-online"></div>
+                                    <img src="assets/images/users/user2.jpg" class="pull-left" alt="John Doe"/>
+                                    <span class="contacts-title">John Doe</span>
+                                    <p>Praesent placerat tellus id augue condimentum</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-away"></div>
+                                    <img src="assets/images/users/user.jpg" class="pull-left" alt="Dmitry Ivaniuk"/>
+                                    <span class="contacts-title">Dmitry Ivaniuk</span>
+                                    <p>Donec risus sapien, sagittis et magna quis</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-away"></div>
+                                    <img src="assets/images/users/user3.jpg" class="pull-left" alt="Nadia Ali"/>
+                                    <span class="contacts-title">Nadia Ali</span>
+                                    <p>Mauris vel eros ut nunc rhoncus cursus sed</p>
+                                </a>
+                                <a href="#" class="list-group-item">
+                                    <div class="list-group-status status-offline"></div>
+                                    <img src="assets/images/users/user6.jpg" class="pull-left" alt="Darth Vader"/>
+                                    <span class="contacts-title">Darth Vader</span>
+                                    <p>I want my money back!</p>
+                                </a>
+                            </div>     
+                            <div class="panel-footer text-center">
+                                <a href="pages-messages.html">Show all messages</a>
+                            </div>                            
+                        </div>                        
+                    </li>
+                    <!-- END MESSAGES -->
+                    <!-- TASKS -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="#"><span class="fa fa-tasks"></span></a>
+                        <div class="informer informer-warning">3</div>
+                        <div class="panel panel-primary animated zoomIn xn-drop-left xn-panel-dragging">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><span class="fa fa-tasks"></span> Tasks</h3>                                
+                                <div class="pull-right">
+                                    <span class="label label-warning">3 active</span>
+                                </div>
+                            </div>
+                            <div class="panel-body list-group scroll" style="height: 200px;">                                
+                                <a class="list-group-item" href="#">
+                                    <strong>Phasellus augue arcu, elementum</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">50%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 25 Sep 2014 / 50%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Aenean ac cursus</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">80%</div>
+                                    </div>
+                                    <small class="text-muted">Dmitry Ivaniuk, 24 Sep 2014 / 80%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Lorem ipsum dolor</strong>
+                                    <div class="progress progress-small progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">95%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 23 Sep 2014 / 95%</small>
+                                </a>
+                                <a class="list-group-item" href="#">
+                                    <strong>Cras suscipit ac quam at tincidunt.</strong>
+                                    <div class="progress progress-small">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">100%</div>
+                                    </div>
+                                    <small class="text-muted">John Doe, 21 Sep 2014 /</small><small class="text-success"> Done</small>
+                                </a>                                
+                            </div>     
+                            <div class="panel-footer text-center">
+                                <a href="pages-tasks.html">Show all tasks</a>
+                            </div>                            
+                        </div>                        
+                    </li>
+                    <!-- END TASKS -->
+                </ul>
+                <!-- END X-NAVIGATION VERTICAL -->                     
+                
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Tables</a></li>
+                    <li class="active">Basic</li>
+                </ul>
+                <!-- END BREADCRUMB -->
+                
+                <!-- PAGE TITLE -->
+                <!-- <div class="page-title">                    
+                    <h2><span class="fa fa-arrow-circle-o-left"></span> Basic Tables</h2>
+                </div> -->
+                <!-- END PAGE TITLE -->                
+                
+                <!-- PAGE CONTENT WRAPPER -->
+                <div class="page-content-wrap">
+                
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            
+                            <!-- START DATATABLE EXPORT -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">用户管理</h3>
+                                    <div class="btn-group pull-right">
+                                        <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> 导出数据</button>
+                                        <a class="btn btn-info ml20" data-toggle="modal" href='#modal-id'>增加用户 <i class="fa fa-users"></i></a>
+                                        <ul class="dropdown-menu" id="export_ul">
+                                            <li><a data-type="json" href="javascript:;"><img src='img/icons/json.png' width="24"/> JSON</a></li>
+                                            <li><a data-type="csv" href="javascript:;"><img src='img/icons/csv.png' width="24"/> CSV</a></li>
+                                            <li><a data-type="txt" href="javascript:;"><img src='img/icons/txt.png' width="24"/> TXT</a></li>
+                                            <li class="divider"></li>
+                                            <li><a data-type="xls" href="javascript:;"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
+                                            <li><a data-type="doc" href="javascript:;"><img src='img/icons/word.png' width="24"/> Word</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="modal-id">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h4 class="modal-title">用户信息</h4>
+                                            </div>
+                                            <form action="#" method="POST" class="form-horizontal" role="form" id="modal_form">
+                                                <div class="modal-body">
+                                                    <input type="hidden" name="modal_id" class="form-control" value="" id="modal_id">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">姓名</label>
+                                                        <div class="col-md-7">          
+                                                            <div class="input-group">
+                                                                <input class="form-control" name="name" placeholder="请输入姓名" type="text" id="modal_name">
+                                                                <span class="input-group-addon"><span class="fa fa-user"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 col-xs-12 control-label">手机号码</label>
+                                                        <div class="col-md-7 col-xs-12">             
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="tel" placeholder="请输入手机号码" id="modal_tel" />
+                                                                <span class="input-group-addon"><span class="fa fa-phone"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">分机</label>
+                                                        <div class="col-md-7">          
+                                                            <div class="input-group">
+                                                                <input class="form-control" name="extension" placeholder="请输入分机" type="text" id="modal_extension">
+                                                                <span class="input-group-addon"><span class="glyphicon glyphicon-phone-alt"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">籍贯</label>
+                                                        <div class="col-md-9">
+                                                            <select id="loc_province" name="province" style="width:120px;"></select>
+                                                            <select id="loc_city" name="city" style="width:120px; margin-left: 10px"></select>
+                                                            <select id="loc_town" name="town" style="width:120px;margin-left: 10px"></select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_sex">
+                                                        <label class="control-label col-md-3">性别</label>
+                                                        <div class="col-md-5">
+                                                            <label class="radio-inline">
+                                                                <input name="sex[]" type="radio" value="男" checked="">
+                                                                <span>男</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="sex[]" type="radio" value="女">
+                                                                <span>女</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_education">
+                                                        <label class="control-label col-md-3">学历</label>
+                                                        <div class="col-md-9">
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="博士">
+                                                                <span>博士</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="硕士">
+                                                                <span>硕士</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="本科" checked="">
+                                                                <span>本科</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="专科">
+                                                                <span>专科</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="高中">
+                                                                <span>高中</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="初中">
+                                                                <span>初中</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="education_background[]" type="radio" value="小学">
+                                                                <span>小学</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 col-xs-12 control-label">专业</label>
+                                                        <div class="col-md-7 col-xs-12">             
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" name="major" placeholder="请输入专业" id="modal_major" />
+                                                                <span class="input-group-addon"><span class="fa fa-book"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">            
+                                                        <label class="control-label col-md-3">出生日期</label>
+                                                        <div class="col-md-7">       
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control datepicker" value="1994-01-21" name="birthday" placeholder="请输入出生日期" id="modal_birthday">
+                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_duty">
+                                                        <label class="control-label col-md-3">职务</label>
+                                                        <div class="col-md-5">
+                                                            <label class="radio-inline">
+                                                                <input name="duty[]" type="radio" value="员工" checked="">
+                                                                <span>员工</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="duty[]" type="radio" value="经理">
+                                                                <span>经理</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_department">
+                                                        <label class="control-label col-md-3">部门</label>
+                                                        <div class="col-md-5">
+                                                            <label class="radio-inline">
+                                                                <input name="department[]" type="radio" value="工程部" checked="" onclick="change_business_select(this.value)">
+                                                                <span>工程部</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="department[]" type="radio" value="销售部" onclick="change_business_select(this.value)">
+                                                                <span>销售部</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_business">
+                                                        <label class="control-label col-md-3">业务</label>
+                                                        <div class="col-md-5">
+                                                            <label class="radio-inline">
+                                                                <input name="business[]" type="radio" value="工程安装" checked="" onclick="change_post_select(this.value);">
+                                                                <span>工程安装</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="business[]" type="radio" value="工程卸载" onclick="change_post_select(this.value);">
+                                                                <span>工程卸载</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="modal_post">
+                                                        <label class="control-label col-md-3">岗位</label>
+                                                        <div class="col-md-5">
+                                                            <label class="radio-inline">
+                                                                <input name="post[]" type="radio" value="工程软件" checked="">
+                                                                <span>工程软件</span>
+                                                            </label>
+                                                            <label class="radio-inline">
+                                                                <input name="post[]" type="radio" value="工程硬件">
+                                                                <span>工程硬件</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">            
+                                                        <label class="control-label col-md-3">入职日期</label>
+                                                        <div class="col-md-7">       
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control datepicker" value="2014-11-01" name="hiredate" placeholder="请输入入职日期" id="modal_hiredate">
+                                                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">年资</label>
+                                                        <div class="col-md-7">    
+                                                            <div class="input-group">
+                                                                <input class="form-control" name="senority" placeholder="请输入年资" type="text" id="modal_senority">
+                                                                <span class="input-group-addon"><span class="fa fa-heart"></span></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3">工资</label>
+                                                        <div class="col-md-7">           
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon"><span class="fa fa-rmb"></span></span>
+                                                                <input class="form-control" name="salary" placeholder="请输入工资" type="text" id="modal_salary">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                                    <button type="submit" class="btn btn-primary">保存</button>
+                                                </div>
+                                            </form>
+                                        </div><!-- /.modal-content -->
+                                    </div><!-- /.modal-dialog -->
+                                </div><!-- /.modal -->
+                                <div class="panel-body">
+                                    <table id="customers2" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>姓名</th>
+                                                <th>手机</th>
+                                                <th>职务</th>
+                                                <th>学历</th>
+                                                <th>部门</th>
+                                                <th>入职日期</th>
+                                                <th>工资</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="name">方赞潘</td>
+                                                <td class="tel">13545212524</td>
+                                                <td class="native_place">员工</td>
+                                                <td class="education_background">博士</td>
+                                                <td class="department">工程部</td>
+                                                <td class="birthday">1981-04-25</td>
+                                                <td class="salary">7200.00</td>
+                                                <td class="operate">
+                                                    <a class="icon_edit" data-toggle="modal" href='#modal-id' >编辑</a>
+                                                    <a href="javascript:void(0);" class="icon_delete">删除</a>
+                                                    <div class="hide_info hidden">
+                                                        <div class="id">1</div>
+                                                        <div class="sex">男</div>
+                                                        <div class="hiredate">2011-01-22</div>
+                                                        <div class="extension">251</div>
+                                                        <div class="province">广东省</div>
+                                                        <div class="city">广州市</div>
+                                                        <div class="town">白云区</div>
+                                                        <div class="major">软件测试</div>
+                                                        <div class="senority">3</div>
+                                                        <div class="business">工程部456</div>
+                                                        <div class="post">工程部456456</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">湛耀</td>
+                                                <td class="tel">13545222224</td>
+                                                <td class="native_place">员工</td>
+                                                <td class="education_background">博士</td>
+                                                <td class="department">工程部</td>
+                                                <td class="birthday">2021-04-25</td>
+                                                <td class="salary">7300.00</td>
+                                                <td class="operate">
+                                                    <a class="icon_edit" data-toggle="modal" href='#modal-id' >编辑</a>
+                                                    <a href="javascript:void(0);" class="icon_delete">删除</a>
+                                                    <div class="hide_info hidden">
+                                                        <div class="id">2</div>
+                                                        <div class="sex">男</div>
+                                                        <div class="hiredate">2013-01-22</div>
+                                                        <div class="extension">222</div>
+                                                        <div class="province">天津市</div>
+                                                        <div class="city">天津市</div>
+                                                        <div class="town">和平区</div>
+                                                        <div class="major">软件开发</div>
+                                                        <div class="senority">5</div>
+                                                        <div class="business">工程部123</div>
+                                                        <div class="post">工程部123456</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="name">我是女生</td>
+                                                <td class="tel">13888222224</td>
+                                                <td class="native_place">经理</td>
+                                                <td class="education_background">硕士</td>
+                                                <td class="department">销售部</td>
+                                                <td class="birthday">1999-04-25</td>
+                                                <td class="salary">17300.00</td>
+                                                <td class="operate">
+                                                    <a class="icon_edit" data-toggle="modal" href='#modal-id' >编辑</a>
+                                                    <a href="javascript:void(0);" class="icon_delete">删除</a>
+                                                    <div class="hide_info hidden">
+                                                        <div class="id">3</div>
+                                                        <div class="sex">女</div>
+                                                        <div class="hiredate">2023-04-30</div>
+                                                        <div class="extension">412</div>
+                                                        <div class="province">山西省</div>
+                                                        <div class="city">太原市</div>
+                                                        <div class="town">小店区</div>
+                                                        <div class="major">软件开发</div>
+                                                        <div class="senority">4</div>
+                                                        <div class="business">销售部123</div>
+                                                        <div class="post">销售部123456</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>                                    
+                                    
+                                </div>
+                            </div>
+                            <!-- END DATATABLE EXPORT -->                            
+                            
+                        </div>
+                    </div>
+
+                </div>         
+                <!-- END PAGE CONTENT WRAPPER -->
+            </div>            
+            <!-- END PAGE CONTENT -->
+        </div>
+        <!-- END PAGE CONTAINER -->    
+
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-remove-row">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-times"></span> Remove <strong>Data</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to remove this row?</p>                    
+                        <p>Press Yes if you sure.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <button class="btn btn-success btn-lg mb-control-yes">Yes</button>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MESSAGE BOX-->        
+        
+        <!-- MESSAGE BOX-->
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-sign-out"></span> Log <strong>Out</strong> ?</div>
+                    <div class="mb-content">
+                        <p>Are you sure you want to log out?</p>                    
+                        <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <button class="btn btn-default btn-lg mb-control-close">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END MESSAGE BOX-->
+
+        <!-- START PRELOADS -->
+        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
+        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
+        <!-- END PRELOADS -->                      
+
+    <!-- START SCRIPTS -->
+        <!-- START PLUGINS -->
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
+        <!-- END PLUGINS -->
+        
+        <script type="text/javascript" src="js/plugins/select2/area.js"></script>
+        <script type="text/javascript" src="js/plugins/select2/location.js"></script>
+        <script type="text/javascript" src="js/plugins/select2/select2.js"></script>
+        <script type="text/javascript" src="js/plugins/select2/select2_locale_zh-CN.js"></script>
+
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap-datepicker.js"></script>
+
+        <script type="text/javascript" src="js/plugins/jquery-validation/jquery.validate.js"></script>
+
+        <!-- START THIS PAGE PLUGINS-->        
+        <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        
+        <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+
+    <script src="js/plugins/tableexport_my/Blob.js"></script>
+    <script src="js/plugins/tableexport_my/FileSaver.js"></script>
+    <script src="js/plugins/tableexport_my/tableExport.js"></script>
+        <!-- END THIS PAGE PLUGINS-->  
+        
+        <!-- START TEMPLATE -->
+        <script type="text/javascript" src="js/settings.js"></script>
+        
+        <script type="text/javascript" src="js/plugins.js"></script>        
+        <script type="text/javascript" src="js/actions.js"></script>        
+        <!-- END TEMPLATE -->
+    <!-- END SCRIPTS -->     
+        <script>
+
+            $(function(){
+
+                var oTable = $("#customers2").dataTable({
+                    aoColumnDefs: [{
+                        bSortable: false,
+                        aTargets: [-1]
+                    }]
+                  });
+
+                $('#customers2').on('click', 'a.icon_delete', function (e) {
+
+                    //获取表格id
+                    var id = $(this).siblings('.hide_info').find('.id').text();
+
+                    alert("要删除的id值为："+id);
+
+                    e.preventDefault();
+
+                    var nRow = $(this).parents('tr')[0];
+                    oTable.fnDeleteRow( nRow );
+                });
+
+                // 中文的验证 
+                jQuery.validator.addMethod("chinese", function(value, element) { 
+                var chinese = /^[\u4e00-\u9fa5]+$/; 
+                return this.optional(element) || (chinese.test(value)); 
+                }, "只能输入中文"); 
+                // 手机号码验证 
+                jQuery.validator.addMethod("mobile", function(value, element) { 
+                var length = value.length; 
+                var mobile = /^(((13[0-9]{1})|(15[0-9]{1}))+\d{8})$/ 
+                return this.optional(element) || (length == 11 && mobile.test(value)); 
+                }, "手机号码格式错误"); 
+                $("#modal_form").validate({
+                    rules: {
+                        name: {
+                            required : true,
+                            chinese : true
+                        },
+                        tel: {
+                            required : true,
+                            mobile : true
+                        },
+                        extension : {
+                            required : true,
+                            minlength : 3,
+                            maxlength : 3,
+                            digits : true
+                        },
+                        birthday : {
+                            required : true,
+                            date : true
+                        },
+                        major : {
+                            required : true
+                        },
+                        hiredate : {
+                            required : true,
+                            date : true
+                        },
+                        senority : {
+                            required : true,
+                            digits : true,
+                            range : [0,100]
+                        },
+                        salary : {
+                            required : true,
+                            number : true
+                        }
+                    },
+                    messages: {
+                        name: {
+                            required : '请您填写姓名',
+                            chinese : '姓名必须为中文'
+                        },
+                        tel: {
+                            required : '请您填写手机号码'
+                        },
+                        extension : {
+                            required : '请您填写分号',
+                            minlength : '分号必须为3位数字',
+                            maxlength : '分号必须为3位数字',
+                            digits : '分号必须为数字'
+                        },
+                        birthday : {
+                            required : '请您选择出生日期',
+                            date : '出生日期不正确'
+                        },
+                        major : {
+                            required : '请您填写专业'
+                        },
+                        hiredate : {
+                            required : '请您选择入职日期',
+                            date : '入职日期不正确'
+                        },
+                        senority : {
+                            required : '请您输入年资',
+                            digits : '年资必须为数字',
+                            range : '年资范围为1-100'
+                        },
+                        salary : {
+                            required : '请您输入工资',
+                            number : '工资必须为数字'
+                        }
+                    },
+                    errorPlacement: function(error, element) {  
+                      error.appendTo ( element.parent().parent() );  
+                      error.addClass ("checkbox-inline");
+                    },
+                    submitHandler:function(form){
+                        if ($("#loc_province").select2('data').text == "省份") {
+                            $("#loc_province").parent().append('<label id="loc_province-error" class="error checkbox-inline" for="loc_province">请您选择省份</label>');
+                        }else if ($("#loc_city").select2('data').text == "地级市"){
+                            $("#loc_city").parent().append('<label id="loc_city-error" class="error checkbox-inline" for="loc_city">请您选择地级市</label>');
+                        }else if ($("#loc_town").select2('data').text == "市、县、区"){
+                            $("#loc_town").parent().append('<label id="loc_town-error" class="error checkbox-inline" for="loc_town">请您选择市、县、区</label>');
+                        }else {
+                            $(form).submit();
+                        };
+                    }
+                });
+
+                //省市区
+                showLocation();
+
+            })
+
+        //导出数据
+            var $exportLink = document.getElementById('export_ul');
+            $exportLink.addEventListener('click', function(e){
+                e.preventDefault();
+                if(e.target.nodeName === "A"){
+                    tableExport('customers2', '数据', e.target.getAttribute('data-type'));
+                }
+                
+            }, false);
+
+            function change_business_select(select_value){
+                // alert("这里要处理所选部门值"+select_value);
+                $("#modal_business").html('<label class="control-label col-md-3">业务</label><div class="col-md-5"><label class="radio-inline"><input name="business[]" type="radio" value="' + select_value + '123" checked="" onclick="change_post_select(this.value);"><span>' + select_value + '123</span></label><label class="radio-inline"><input name="business[]" type="radio" value="' + select_value + '456" onclick="change_post_select(this.value);"><span>' + select_value + '456</span></label>');
+                change_post_select(select_value);
+            }
+
+            function change_post_select(select_value){
+                // alert("这里要处理所选业务值"+select_value);
+                $("#modal_post").html('<label class="control-label col-md-3">岗位</label><div class="col-md-5"><label class="radio-inline"><input name="post[]" type="radio" value="' + select_value + '123" checked=""><span>' + select_value + '123</span></label><label class="radio-inline"><input name="post[]" type="radio" value="' + select_value + '456"><span>' + select_value + '456</span></label>');
+            }
+
+            //编辑按钮
+            $(".icon_edit").click(function() {
+
+            /*
+                **  获取表格数据
+             */
+            
+                //获取表格名字
+                var name = $(this).parents("tr").find('.name').text();
+                //获取表格手机
+                var tel = $(this).parents("tr").find('.tel').text();
+                //获取表格职务
+                var native_place = $(this).parents("tr").find('.native_place').text();
+                //获取表格教育背景
+                var education_background = $(this).parents("tr").find('.education_background').text();
+                //获取表格部门值
+                var department = $(this).parents("tr").find('.department').text();
+                //获取表格出生日期
+                var birthday = $(this).parents("tr").find('.birthday').text();
+                //获取表格工资
+                var salary = $(this).parents("tr").find('.salary').text();
+
+            /*
+                **  获取表格隐藏数据
+             */
+                
+                //获取表格id
+                var id = $(this).siblings('.hide_info').find('.id').text();
+                //获取表格性别
+                var sex = $(this).siblings('.hide_info').find('.sex').text();
+                //获取表格分机
+                var extension = $(this).siblings('.hide_info').find('.extension').text();
+                //获取表格所在省份
+                var province = $(this).siblings('.hide_info').find('.province').text();
+                //获取表格所在城市
+                var city = $(this).siblings('.hide_info').find('.city').text();
+                //获取表格所在县区
+                var town = $(this).siblings('.hide_info').find('.town').text();
+                //获取表格专业
+                var major = $(this).siblings('.hide_info').find('.major').text();
+                //获取表格年资
+                var senority = $(this).siblings('.hide_info').find('.senority').text();
+                //获取表格业务值
+                var business = $(this).siblings('.hide_info').find('.business').text();
+                //获取表格岗位值
+                var post = $(this).siblings('.hide_info').find('.post').text();
+                //获取表格岗位值
+                var hiredate = $(this).siblings('.hide_info').find('.hiredate').text();
+                //定义省市区值
+                var province_value , city_value , town_value ;
+
+
+                //模态框 - id赋值
+                $("#modal_id").val(id);
+                //模态框 - 名字赋值
+                $("#modal_name").val(name);
+                //模态框 - 手机赋值
+                $("#modal_tel").val(tel);
+                //模态框 - 分机赋值
+                $("#modal_extension").val(extension);
+                //模态框 - 专业赋值
+                $("#modal_major").val(major);
+                //模态框 - 年资赋值
+                $("#modal_senority").val(senority);
+                //模态框 - 出生日期赋值
+                $("#modal_birthday").val(birthday);
+                //模态框 - 入职日期赋值
+                $("#modal_hiredate").val(hiredate);
+                //模态框 - 工资赋值
+                $("#modal_salary").val(salary);
+                //遍历模态框性别单选框并赋值
+                $("input[name='sex[]']").each(function() {
+                    if ( $(this).val() == sex) {
+                        $(this).click();
+                    };
+                });
+                //遍历模态框职务单选框并赋值
+                $("input[name='native_place[]']").each(function() {
+                    if ( $(this).val() == native_place) {
+                        $(this).click();
+                    };
+                });
+                //遍历模态框教育单选框并赋值
+                $("input[name='education_background[]']").each(function() {
+                    if ( $(this).val() == education_background) {
+                        $(this).click();
+                    };
+                });
+
+
+            /*
+                **  模态框 - 部门业务岗位赋值
+             */
+
+                //遍历部门获取匹配值
+                $("input[name='department[]']").each(function() {
+                    if ( $(this).val() == department) {
+                        $(this).click();
+                    };
+                });
+
+                //遍历业务获取匹配值
+                $("input[name='business[]']").each(function() {
+                    if ( $(this).val() == business) {
+                        $(this).click();
+                    };
+                });
+
+                //遍历岗位获取匹配值
+                $("input[name='post[]']").each(function() {
+                    if ( $(this).val() == post) {
+                        $(this).click();
+                    };
+                });
+
+            /*
+                **  模态框 - 省市区赋值
+             */
+                
+                //遍历省获取匹配值
+                $("#loc_province > option").each(function() {
+                    if ($(this).text() == province) {
+                        province_value = $(this).val();
+                    };
+                });
+                //改变省的下拉值
+                $("#loc_province").select2("val", province_value);
+                //触发联动函数
+                $('#loc_province').change();
+
+                $("#loc_city > option").each(function() {
+                    if ($(this).text() == city) {
+                        city_value = $(this).val();
+                    };
+                });
+                $("#loc_city").select2("val", city_value);
+                $('#loc_city').change();
+
+                $("#loc_town > option").each(function() {
+                    if ($(this).text() == town) {
+                        town_value = $(this).val();
+                    };
+                });
+                $("#loc_town").select2("val", town_value);
+                $('#loc_town').change();
+
+            });
+
+            </script>
+    </body>
+</html>
+
+
+
+
+
+

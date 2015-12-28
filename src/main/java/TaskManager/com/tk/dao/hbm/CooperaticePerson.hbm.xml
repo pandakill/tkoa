@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.CooperaticePerson" table="cooperatice_person" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" length="10"/>
+            <generator class="assigned" />
+        </id>
+        
+        <!-- 与project建立双向多对一双向关联 -->
+        <many-to-one name="plan" class="com.tk.dao.hbm.Plan" fetch="join" lazy="false">
+            <column name="PLAN_ID" not-null="true" length="5">
+                <comment>计划所属的项目</comment>
+            </column>
+        </many-to-one>
+        
+        <!-- 与employee建立多对一双向关联关系 -->
+        <many-to-one name="employee" class="com.tk.dao.hbm.Employee" fetch="select" lazy="false">
+            <column name="EMPLOYEE_ID" not-null="true" length="5">
+                <comment>计划协作人</comment>
+            </column>
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>

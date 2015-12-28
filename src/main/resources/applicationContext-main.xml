@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+											http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+											http://www.springframework.org/schema/tx
+											http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+	<!-- 定义数据源 Bean，使用 C3P0 数据源实现 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<!-- 指定连接数据库的驱动 -->
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<!-- 指定连接数据库的 URL -->
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/tkoa" />
+		<!-- 指定连接数据库的用户名 -->
+		<property name="user" value="root" />
+		<!-- 指定连接数据库的密码 -->
+		<property name="password" value="root" />
+		<!-- 指定连接数据库连接池的最大连接数 -->
+		<property name="maxPoolSize" value="40" />
+		<!-- 指定连接数据库连接池的最小连接数 -->
+		<property name="minPoolSize" value="1" />
+		<!-- 指定连接数据库连接池的初始化连接数 -->
+		<property name="initialPoolSize" value="1" />
+		<!-- 指定连接数据库连接池的连接最大空闲时间 -->
+		<property name="maxIdleTime" value="20" />
+	</bean>
+	
+	<!-- 定义 Hibernate 的 sessionFactory -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- 依赖注入已配置好的数据源 dataSource -->
+		<property name="dataSource">
+			<ref local="dataSource"/>
+		</property>
+		<!-- 设置 Hibernate 的属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">
+					update
+				</prop>
+				<prop key="show_sql">
+					true
+				</prop>
+				<prop key="hbm2ddl.auto">
+					update
+				</prop>
+				<prop key="current_session_context_class">
+					thread
+				</prop>
+			</props>
+		</property>
+		
+		<!-- 指定  Hibernate 所有映射文件的路径 -->
+		<property name="mappingResources">
+			<list>
+				<value>AchievementManager/com/tk/dao/hbm/ExpatriateLabor.hbm.xml</value>
+				<value>AchievementManager/com/tk/dao/hbm/Work.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/AttendType.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/Authorities.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/ClockingIn.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/ClockingOut.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/Employee.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/Users.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/EducationBackground.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/Leave.hbm.xml</value>
+				<value>ClientActionManager/com/tk/dao/hbm/LeaveState.hbm.xml</value>
+				<value>DepartmentManager/com/tk/dao/hbm/Business.hbm.xml</value>
+				<value>DepartmentManager/com/tk/dao/hbm/Department.hbm.xml</value>
+				<value>DepartmentManager/com/tk/dao/hbm/Post.hbm.xml</value>
+				<value>DepartmentManager/com/tk/dao/hbm/Notice.hbm.xml</value>
+				<value>SalaryManager/com/tk/dao/hbm/Salary.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/Project.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/Participants.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/Plan.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/CooperaticePerson.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/Mission.hbm.xml</value>
+				<value>TaskManager/com/tk/dao/hbm/CheckItem.hbm.xml</value>
+			</list>
+		</property>
+  	</bean>
+  	
+  	
+  	<!-- 配置事务管理器 -->
+  	<!-- 声明一个 Hibernate 3 的 事务管理器供代理类自动管理事务用 -->
+  	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+  	<!-- 配置事务的传播特性 -->
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">readOnly</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- Base DAO -->
+	<bean id="BaseDAO" abstract="true" class="com.tk.dao.impl.BaseDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+</beans>

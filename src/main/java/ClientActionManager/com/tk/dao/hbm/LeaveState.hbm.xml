@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.LeaveState" table="leave_state" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="10" not-null="true">
+                <comment>请假状态</comment>
+            </column>
+        </property>
+        <!-- 与leave建立一对多双向关联关系 -->
+        <set name="leaves" table="leave" inverse="true" lazy="true">
+			    <key>
+			        <column name="LEAVE_STATE_ID"/>
+			    </key>
+			    <one-to-many class="com.tk.dao.hbm.Leave"/>
+				</set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Mission" table="mission" catalog="tkoa">
+        <id name="id" type="int">
+            <column name="ID" length="5"/>
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="40" not-null="true">
+                <comment>计划名字</comment>
+            </column>
+        </property>
+        <property name="createDate" type="string">
+            <column name="CREATE_DATE" length="10" not-null="true">
+                <comment>计划创建时间</comment>
+            </column>
+            
+        </property>
+        <property name="completeDate" type="string">
+            <column name="COMPLETE_DATE" length="10" not-null="false">
+                <comment>计划完成时间</comment>
+            </column>
+        </property>
+        <property name="description" type="string">
+            <column name="DESCRIPTION" length="100" not-null="false">
+                <comment>计划描述</comment>
+            </column>
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" length="1" not-null="true">
+                <comment>完成状态：0--未完成；1--已完成</comment>
+            </column>
+        </property>
+        
+        
+        <!-- 与plan建立双向多对一双向关联 -->
+        <many-to-one name="plan" class="com.tk.dao.hbm.Plan" fetch="join" lazy="false">
+            <column name="PLAN_ID" not-null="true">
+                <comment>任务所属计划</comment>
+            </column>
+        </many-to-one>
+        
+        <!-- 与employee建立多对一双向关联关系 -->
+        <many-to-one name="employee" class="com.tk.dao.hbm.Employee" fetch="select" lazy="false">
+            <column name="EMPLOYEE_ID" length="5" not-null="true">
+                <comment>任务执行人</comment>
+            </column>
+        </many-to-one>
+        
+        <!-- 与checkItem建立双向一对多关联关系 -->
+        <set name="checkItems" table="check_item" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="MISSION_ID" not-null="true">
+                    <comment>检查项所属的任务id</comment>
+                </column>
+            </key>
+            <one-to-many class="com.tk.dao.hbm.CheckItem" />
+        </set>
+        
+    </class>
+</hibernate-mapping>

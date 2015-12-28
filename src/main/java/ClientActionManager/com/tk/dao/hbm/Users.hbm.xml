@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-7-4 19:53:33 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.tk.dao.hbm.Users" table="users" catalog="tkoa">
+        <id name="username" type="string">
+            <column name="USERNAME" length="11" />
+            <generator class="assigned" />
+        </id>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="32">
+                <comment>
+                	密码：
+									管理员添加雇员时，密码为空
+									雇员注册帐号时，设置密码
+                </comment>
+            </column>
+        </property>
+        <property name="enabled" type="short">
+            <column name="ENABLED" not-null="true">
+              <comment>
+                	用户状态：
+									0：表示未激活（管理员添加雇员时，值设为0）
+									1：表示激活（雇员激活帐号时，值设为1）
+							</comment>
+            </column>
+        </property>
+        <!-- 与authorities建立基于主键的一对一双向关联关系 -->
+        <one-to-one name="authorities" class="com.tk.dao.hbm.Authorities" cascade="all"></one-to-one>
+        <!-- 与employee建立基于外键的一对一双向关联关系 -->
+        <one-to-one name="employee" class="com.tk.dao.hbm.Employee" property-ref="users" cascade="all"></one-to-one>
+    </class>
+</hibernate-mapping>
